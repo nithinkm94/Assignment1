@@ -1,0 +1,60 @@
+apply plugin: 'com.android.application'
+
+apply plugin: 'kotlin-android'
+
+apply plugin: 'kotlin-android-extensions'
+
+android {
+    compileSdkVersion 26
+    defaultConfig {
+        applicationId "com.km.nithin.assignment1"
+        minSdkVersion 21
+        targetSdkVersion 26
+        versionCode 1
+        versionName "1.0"
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+    android {
+        defaultConfig {
+            multiDexEnabled true
+        }
+    }
+}
+
+dependencies {
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
+    implementation Deps.kotlin_stdlib
+    implementation Deps.appcompat_support_v7_lib
+    implementation Deps.support_design_lib
+    implementation Deps.constraint_layout_lib
+    implementation Deps.support_vector_drawable_lib
+    testImplementation Deps.junit_lib
+    androidTestImplementation Deps.support_test_runner_lib
+    androidTestImplementation Deps.espresso_lib
+    implementation Deps.dagger_lib
+    annotationProcessor Deps.dagger_compiler_lib
+    kapt Deps.dagger_compiler_lib
+    implementation Deps.rx_java_2_lib
+    implementation Deps.rx_android_2_lib
+    implementation Deps.retrofit_lib
+    implementation Deps.retrofit_rxjava_lib
+    implementation Deps.retrofit_gson_lib
+    implementation Deps.okhttp_interceptor_lib
+    implementation Deps.picasso_lib
+    implementation Deps.cardview_support_lib
+    implementation Deps.grid_support_lib
+    implementation Deps.circle_indicator_lib
+    implementation Deps.play_service_lib
+    implementation Deps.zxing_core_lib
+    implementation Deps.zxing_android_lib
+}
+
+kapt {
+    generateStubs = true
+}
